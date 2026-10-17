@@ -1,27 +1,56 @@
-// Weather Dashboard — API practice. Suggested API: https://open-meteo.com/
-// TODO 1: Create async getCoordinates(city) using the geocoding API.
-// TODO 2: Create async getWeather(latitude, longitude) using the forecast API.
-// TODO 3: Map weather codes to readable conditions and emojis.
-// TODO 4: Handle loading, invalid cities and network errors.
+// Quiz Master starter: build the quiz logic yourself.
+// TODO: Create 5 question objects, each with question, options, answerIndex, explanation.
+// TODO: Implement startQuiz(), renderQuestion(), selectAnswer(), showResults() and restartQuiz().
+// TODO: Update score/progress, prevent multiple answers per question and save best score in localStorage.
 
-const form = document.querySelector("#search-form");
-const cityInput = document.querySelector("#city-input");
-const statusText = document.querySelector("#status");
-const weatherCard = document.querySelector("#weather-card");
-const locationElement = document.querySelector("#location");
-const conditionElement = document.querySelector("#condition");
-const updatedElement = document.querySelector("#updated");
-const iconElement = document.querySelector("#weather-icon");
-const temperatureElement = document.querySelector("#temperature");
-const feelsLikeElement = document.querySelector("#feels-like");
-const humidityElement = document.querySelector("#humidity");
-const windElement = document.querySelector("#wind");
+const startScreen = document.querySelector("#start-screen");
+const quizScreen = document.querySelector("#quiz-screen");
+const resultScreen = document.querySelector("#result-screen");
+const playerNameInput = document.querySelector("#player-name");
+const startButton = document.querySelector("#start-button");
+const nextButton = document.querySelector("#next-button");
+const restartButton = document.querySelector("#restart-button");
+const questionCount = document.querySelector("#question-count");
+const scoreLabel = document.querySelector("#score-label");
+const progressBar = document.querySelector("#progress-bar");
+const questionText = document.querySelector("#question-text");
+const answersContainer = document.querySelector("#answers");
+const feedback = document.querySelector("#feedback");
+const resultTitle = document.querySelector("#result-title");
+const resultScore = document.querySelector("#result-score");
+const resultMessage = document.querySelector("#result-message");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  statusText.textContent = "TODO: Connect the weather API in script.js.";
+const questions = [
+  { question: "Which language structures a webpage?", options: ["HTML", "CSS", "SQL", "Python"], answerIndex: 0, explanation: "HTML gives a webpage its structure." },
+  { question: "Which language styles a webpage?", options: ["PHP", "CSS", "C++", "SQL"], answerIndex: 1, explanation: "CSS controls the visual design." },
+  { question: "Which keyword declares a block-scoped variable?", options: ["print", "echo", "let", "style"], answerIndex: 2, explanation: "let declares a block-scoped variable in JavaScript." },
+  { question: "Which method selects an element by CSS selector?", options: ["querySelector()", "getColor()", "selectHTML()", "findCSS()"], answerIndex: 0, explanation: "querySelector() returns the first matching element." },
+  { question: "Where can a browser store small key-value data?", options: ["localStorage", "style.css", "DOCTYPE", "console only"], answerIndex: 0, explanation: "localStorage stores key-value strings in the browser." }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+let playerName = "";
+
+function startQuiz() {
+  // TODO: initialize currentQuestion, score, playerName and show quizScreen.
+}
+function renderQuestion() {
+  // TODO: render question/options, update counter and progress, reset feedback/next button.
+}
+function selectAnswer(selectedIndex, button) {
+  // TODO: disable answer buttons, mark correct/incorrect, update score and feedback.
+}
+function showResults() {
+  // TODO: show final score and a friendly message; save best score in localStorage.
+}
+function restartQuiz() {
+  // TODO: reset state and call renderQuestion().
+}
+
+startButton.addEventListener("click", startQuiz);
+nextButton.addEventListener("click", () => {
+  // TODO: advance to next question or show results.
 });
-
-// API endpoints to build with fetch() and async/await:
-// Geocoding: https://geocoding-api.open-meteo.com/v1/search?name=CITY&count=1&language=en&format=json
-// Forecast: https://api.open-meteo.com/v1/forecast?latitude=LAT&longitude=LON&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,wind_speed_10m
+restartButton.addEventListener("click", restartQuiz);
